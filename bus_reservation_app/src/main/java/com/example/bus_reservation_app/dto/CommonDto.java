@@ -1,7 +1,6 @@
 package com.example.bus_reservation_app.dto;
 
 import com.example.bus_reservation_app.entity.UserProfile;
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

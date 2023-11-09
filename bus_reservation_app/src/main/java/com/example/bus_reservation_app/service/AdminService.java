@@ -12,13 +12,13 @@ import com.example.bus_reservation_app.jwt_tokens.TokenGeneration;
 import com.example.bus_reservation_app.repo.AdminRepo;
 import com.example.bus_reservation_app.repo.UserProfileRepo;
 import com.example.bus_reservation_app.repo.UserRepo;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;

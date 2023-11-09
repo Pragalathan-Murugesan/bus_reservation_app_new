@@ -1,11 +1,15 @@
 package com.example.bus_reservation_app.dto;
 
 import com.example.bus_reservation_app.entity.UserProfile;
-import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @AllArgsConstructor
 @NoArgsConstructor

@@ -2,12 +2,13 @@ package com.example.bus_reservation_app.jwt_tokens;
 
 import com.example.bus_reservation_app.global_exception.IlllegalAuthException;
 import io.jsonwebtoken.Claims;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Component
 public class Interceptor implements HandlerInterceptor {
@@ -22,7 +23,7 @@ public class Interceptor implements HandlerInterceptor {
             jwts = token.substring(7, token.length());
         }
 
-        if (!(request.getRequestURI().contains("/user/api/signup")||request.getRequestURI().contains("user/api/login")
+        if (!(request.getRequestURI().contains("/user/api/signup")||request.getRequestURI().contains("user/api/login")||request.getRequestURI().contains("/api/trigger-webhook")
                 ||request.getRequestURI().contains("/admin/api/adduserprofile")|| request.getRequestURI().contains("/admin/api/adminlogin"))){
             try {
                Claims claims = tokenGeneration.verifyToken(jwts);

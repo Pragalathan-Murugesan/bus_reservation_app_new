@@ -5,10 +5,11 @@ import com.example.bus_reservation_app.dto.CommonDto;
 import com.example.bus_reservation_app.dto.LoginDto;
 import com.example.bus_reservation_app.dto.SignUpDto;
 import com.example.bus_reservation_app.service.UserService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/user/api")

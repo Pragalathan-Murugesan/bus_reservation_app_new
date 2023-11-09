@@ -10,11 +10,7 @@ import com.example.bus_reservation_app.global_exception.CustomizeException;
 import com.example.bus_reservation_app.jwt_tokens.TokenGeneration;
 import com.example.bus_reservation_app.repo.UserProfileRepo;
 import com.example.bus_reservation_app.repo.UserRepo;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
-import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +18,11 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 import java.time.Instant;
 import java.util.*;
 
