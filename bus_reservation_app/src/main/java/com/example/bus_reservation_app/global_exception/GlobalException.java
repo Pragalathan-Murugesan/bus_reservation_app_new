@@ -27,14 +27,14 @@ public class GlobalException {
         });
         return apiResponse;
 }
-
-    @ExceptionHandler(IlllegalAuthException.class)
-    public ApiResponse handleIlllegalAuthException(IlllegalAuthException e){
+    @ExceptionHandler(IllegalAuthException.class)
+    public ApiResponse handleIlllegalAuthException(IllegalAuthException e){
         apiResponse.setMessage("UnAuthorized2 Access");
         apiResponse.setStatus(HttpStatus.UNAUTHORIZED);
         apiResponse.setData(null);
         return apiResponse;
     }
+
     @ExceptionHandler(CustomizeException.class)
     public ApiResponse handleCustomizeException(CustomizeException e){
         apiResponse.setMessage("Internal Server Error");

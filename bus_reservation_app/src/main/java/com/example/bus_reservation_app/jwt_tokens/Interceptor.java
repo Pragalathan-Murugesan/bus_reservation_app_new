@@ -1,6 +1,6 @@
 package com.example.bus_reservation_app.jwt_tokens;
 
-import com.example.bus_reservation_app.global_exception.IlllegalAuthException;
+import com.example.bus_reservation_app.global_exception.IllegalAuthException;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -42,12 +42,12 @@ public class Interceptor implements HandlerInterceptor {
 
             // Check issuer-specific path access
             if ("Admin".equals(claims.getIssuer()) && !uri.startsWith("/admin/api")) {
-                throw new IlllegalAuthException();
+                throw new IllegalAuthException();
             } else if ("User".equals(claims.getIssuer()) && !uri.startsWith("/user/api")) {
-                throw new IlllegalAuthException();
+                throw new IllegalAuthException();
             }
         } catch (IllegalArgumentException e) {
-            throw new IlllegalAuthException();
+            throw new IllegalAuthException();
         }
 
         return HandlerInterceptor.super.preHandle(request, response, handler);

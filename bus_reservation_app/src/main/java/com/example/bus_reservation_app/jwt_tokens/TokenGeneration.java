@@ -1,12 +1,10 @@
 package com.example.bus_reservation_app.jwt_tokens;
 
-import com.example.bus_reservation_app.dto.CommonDto;
 import com.example.bus_reservation_app.dto.LoginDto;
-import com.example.bus_reservation_app.global_exception.IlllegalAuthException;
+import com.example.bus_reservation_app.global_exception.IllegalAuthException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -30,7 +28,7 @@ public class TokenGeneration {
             Claims claims = Jwts.parser().setSigningKey(privateKey).parseClaimsJws(authorization).getBody();
             return claims;
         } catch (IllegalArgumentException e) {
-            throw new IlllegalAuthException();
+            throw new IllegalAuthException();
         }
     }
 }
