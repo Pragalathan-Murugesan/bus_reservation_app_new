@@ -1,0 +1,36 @@
+package com.example.bus_reservation_app.jwt_tokens;
+
+import com.example.bus_reservation_app.dto.CommonDto;
+import com.example.bus_reservation_app.dto.LoginDto;
+import com.example.bus_reservation_app.global_exception.IlllegalAuthException;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
+
+import java.util.Date;
+
+@Component
+public class TokenGeneration {
+    private  static  final String  privateKey= "This Private Key is Admin";
+    Long takenTime = System.currentTimeMillis();
+    Long expiredTime =takenTime + (5*60*100);
+    Date takenAt = new Date(takenTime);
+    Date expiredAt = new Date(expiredTime);
+    public String generateTokens(LoginDto loginDto){
+        Claims claims = Jwts.claims()
+                .setExpiration(expiredAt)
+                .setIssuedAt(takenAt)
+                .setIssuer(loginDto.getRole());
+        return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS384,privateKey).compact();
+    }
+    public Claims verifyToken(String authorization){
+        try {
+            Claims claims = Jwts.parser().setSigningKey(privateKey).parseClaimsJws(authorization).getBody();
+            return claims;
+        } catch (IllegalArgumentException e) {
+            throw new IlllegalAuthException();
+        }
+    }
+}
